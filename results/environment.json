@@ -1,0 +1,9 @@
+{
+  "python": "3.12.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD",
+  "seeds": "0..99",
+  "width": 64,
+  "height": 48,
+  "max_steps": 2000
+}

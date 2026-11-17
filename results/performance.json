@@ -1,0 +1,18 @@
+{
+  "generation": {
+    "mean_ms": 0.11254,
+    "p95_ms": 0.1546,
+    "max_ms": 0.2472,
+    "samples": 100
+  },
+  "ai_tick": {
+    "mean_ms": 0.0004309,
+    "p95_ms": 0.0005,
+    "max_ms": 0.0223,
+    "samples": 1000
+  },
+  "budgets_ms": {
+    "generation_p95": 50.0,
+    "ai_tick_p95": 1.0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "greedy": {
+    "successes": 100,
+    "levels": 100,
+    "steps": 101.21,
+    "stuck_events": 0,
+    "coverage": 0.0921184471109767
+  },
+  "epsilon": {
+    "successes": 100,
+    "levels": 100,
+    "steps": 115.05,
+    "stuck_events": 6.92,
+    "coverage": 0.09509100182517163
+  },
+  "random": {
+    "successes": 0,
+    "levels": 100,
+    "steps": 2000,
+    "stuck_events": 999.81,
+    "coverage": 0.15977352382680607
+  }
+}

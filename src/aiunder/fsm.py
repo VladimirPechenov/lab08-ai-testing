@@ -1,4 +1,5 @@
 """Small guard FSM; elapsed time advances only in SEARCH."""
+
 from enum import Enum
 
 

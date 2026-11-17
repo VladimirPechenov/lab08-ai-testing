@@ -4,17 +4,20 @@ from aiunder.fsm import GuardFSM, State
 from rules.guard_rules import build
 
 
-@pytest.mark.parametrize("source,trigger,target", [
-    (State.PATROL, "see_player", State.ALERT),
-    (State.PATROL, "hear_noise", State.ALERT),
-    (State.ALERT, "confirm", State.CHASE),
-    (State.ALERT, "lost", State.SEARCH),
-    (State.CHASE, "in_range", State.ATTACK),
-    (State.ATTACK, "out_of_range", State.CHASE),
-    (State.CHASE, "lost", State.SEARCH),
-    (State.SEARCH, "see_player", State.CHASE),
-    (State.SEARCH, "timeout", State.PATROL),
-])
+@pytest.mark.parametrize(
+    "source,trigger,target",
+    [
+        (State.PATROL, "see_player", State.ALERT),
+        (State.PATROL, "hear_noise", State.ALERT),
+        (State.ALERT, "confirm", State.CHASE),
+        (State.ALERT, "lost", State.SEARCH),
+        (State.CHASE, "in_range", State.ATTACK),
+        (State.ATTACK, "out_of_range", State.CHASE),
+        (State.CHASE, "lost", State.SEARCH),
+        (State.SEARCH, "see_player", State.CHASE),
+        (State.SEARCH, "timeout", State.PATROL),
+    ],
+)
 def test_transition(source, trigger, target):
     g = GuardFSM()
     g.state = source
