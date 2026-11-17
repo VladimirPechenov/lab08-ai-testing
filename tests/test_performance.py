@@ -1,21 +1,22 @@
-"""Performance-тесты с явными порогами (подберите под свою машину, зафиксируйте в отчёте)."""
-
-import time
+import json
+from pathlib import Path
 
 import pytest
 
-pytest.importorskip("aiunder.bsp")
-from aiunder import bsp  # noqa: E402
+from aiunder.performance import GEN_BUDGET_MS, TICK_BUDGET_MS, measure
 
-GEN_BUDGET_MS = 50
 
+@pytest.fixture(scope='module')
+def measurements():
+    result = measure()
+    Path('results').mkdir(exist_ok=True)
+    Path('results/performance.json').write_text(json.dumps(result, indent=2), encoding='utf-8')
+    return result
 
 @pytest.mark.timeout(10)
-def test_generation_budget():
-    times = []
-    for s in range(20):
-        t = time.perf_counter()
-        bsp.generate(seed=s)
-        times.append((time.perf_counter() - t) * 1000)
-    p95 = sorted(times)[int(0.95 * len(times)) - 1]
-    assert p95 < GEN_BUDGET_MS, f"p95 = {p95:.1f} ms > {GEN_BUDGET_MS} ms"
+def test_generation_budget(measurements):
+    assert measurements['generation']['p95_ms'] < GEN_BUDGET_MS
+
+@pytest.mark.timeout(10)
+def test_ai_tick_budget(measurements):
+    assert measurements['ai_tick']['p95_ms'] < TICK_BUDGET_MS
