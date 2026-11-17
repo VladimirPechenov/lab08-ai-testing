@@ -2,7 +2,7 @@
 
 | Требование опубликованного шаблона | Доказательство |
 |---|---|
-| 10+ unit-тестов FSM/BT/perception | tests/unit/test_ai.py: 18 проверок FSM и зонального восприятия |
+| 10+ unit-тестов FSM/BT/perception | tests/unit/test_ai.py: 17 проверок FSM и зонального восприятия |
 | Бот-плеер с метриками | player_bot.py, experiment.py; CSV на 300 запусков, JSON, график |
 | Solvability на 100 seeds | tests/test_solvability.py, 100 parametrized seed 0..99; полная связность и реальное движение бота |
 | Performance с порогами | tests/test_performance.py: p95 генерации <50 мс, тика NPC <1 мс; обоснование README |
