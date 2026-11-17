@@ -70,3 +70,6 @@ sysinfo.txt
 .DS_Store
 # Видео демо — выкладывать ссылкой, не файлом
 *.mp4
+
+# Rendered QA previews
+docs/img/report-preview-*.png
