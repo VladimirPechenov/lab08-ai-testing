@@ -1,0 +1,25 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.0, pytest-9.2.0, pluggy-1.7.0
+benchmark: 5.3.1 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: C:\Users\vladi\OneDrive\Документы\ChatGPT\ИИИ\lab08-ai-testing
+configfile: pyproject.toml
+plugins: platformdirs-4.14.5, benchmark-5.3.1, timeout-2.4.0
+collected 2 items
+
+tests\test_regressions.py FF                                             [100%]
+
+================================== FAILURES ===================================
+_______________________ test_goal_on_last_allowed_move ________________________
+tests\test_regressions.py:9: in test_goal_on_last_allowed_move
+    assert m.reached_goal
+E   assert False
+E    +  where False = BotMetrics(steps=1, reached_goal=False, stuck_events=0, visited={(0, 0)}).reached_goal
+_____________________ test_start_at_goal_costs_zero_moves _____________________
+tests\test_regressions.py:17: in test_start_at_goal_costs_zero_moves
+    assert m.reached_goal
+E   assert False
+E    +  where False = BotMetrics(steps=0, reached_goal=False, stuck_events=0, visited=set()).reached_goal
+=========================== short test summary info ===========================
+FAILED tests/test_regressions.py::test_goal_on_last_allowed_move - assert False
+FAILED tests/test_regressions.py::test_start_at_goal_costs_zero_moves - asser...
+============================== 2 failed in 0.76s ==============================
